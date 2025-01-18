@@ -2,6 +2,7 @@ const express = require("express");
 const xml2js = require("xml2js");
 const cors = require("cors");
 
+require("dotenv").config()
 const app = express();
 
 // Middleware to parse JSON and text with increased body size limit
@@ -31,7 +32,7 @@ app.get("/test",(req,res)=>{
     res.send("Express is running")
 })
 // Start the server
-const PORT = 3000;
+const PORT =process.env.PORT||5000;
 app.listen(PORT, () => {
     console.log(`API running on http://localhost:${PORT}`);
 });
